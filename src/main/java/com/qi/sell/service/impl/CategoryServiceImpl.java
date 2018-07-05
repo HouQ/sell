@@ -1,6 +1,6 @@
 package com.qi.sell.service.impl;
 
-import com.qi.sell.dao.ProductCategoryRespository;
+import com.qi.sell.dao.ProductCategoryRepository;
 import com.qi.sell.entity.ProductCategory;
 import com.qi.sell.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    private ProductCategoryRespository respository;
+    private ProductCategoryRepository respository;
 
     @Override
     public ProductCategory findOne(Integer categarId) {

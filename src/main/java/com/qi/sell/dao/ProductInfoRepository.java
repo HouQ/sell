@@ -9,6 +9,6 @@ import java.util.List;
  * Created by Qi
  * 2018/7/4 18:38
  **/
-public interface ProductInfoRespository extends JpaRepository<ProductInfo, String> {
+public interface ProductInfoRepository extends JpaRepository<ProductInfo, String> {
     List<ProductInfo> findByProductStatus(Integer productStatus);
 }

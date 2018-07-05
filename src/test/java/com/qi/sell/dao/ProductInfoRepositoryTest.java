@@ -11,17 +11,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Qi
  * 2018/7/4 18:40
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ProductInfoRespositoryTest {
+public class ProductInfoRepositoryTest {
     @Autowired
-    ProductInfoRespository respository;
+    ProductInfoRepository respository;
 
     @Test
     public void saveTest() {

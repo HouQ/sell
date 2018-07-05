@@ -1,25 +1,20 @@
-package com.qi.sell.entity;
+package com.qi.sell.dto;
 
-import com.qi.sell.enums.OrderStatusEnum;
-import com.qi.sell.enums.PayStatusEnum;
+import com.qi.sell.entity.OrderDetail;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 /**
+ * 数据传输对象,比ordermaster多了orderdetail信息
  * Created by Qi
- * 2018/7/5 14:40
+ * 2018/7/5 17:22
  **/
-@Entity
 @Data
-@DynamicUpdate
-public class OrderMaster {
+public class OrderDTO {
     /*订单Id*/
-    @Id
     private String orderId;
 
     /*买家名字*/
@@ -38,10 +33,10 @@ public class OrderMaster {
     private BigDecimal orderAmount;
 
     /*订单状态 0新下单*/
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
     /*支付状态 0未支付*/
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
     /*创建时间*/
     private Date createTime;
@@ -49,6 +44,5 @@ public class OrderMaster {
     /*更新时间*/
     private Date updateTime;
 
-//    @Transient//不与数据库映射
-//    private List<OrderDetail> orderDetailList;
+    private List<OrderDetail> orderDetailList;
 }

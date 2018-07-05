@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -45,5 +46,13 @@ public class OrderMasterRepositoryTest {
         Page<OrderMaster> result = repository.findByBuyerOpenid("wx12568947",pageRequest);
         System.out.println(result.getTotalElements());
         Assert.assertNotEquals(0,result.getTotalElements());
+    }
+
+    @Test
+    public void findOneTest() {
+//        List<OrderMaster> orderMasterList = repository.findAll();
+        OrderMaster orderMaster = repository.findById("201807051001").orElse(null);
+        System.out.println(orderMaster.toString());
+//        System.out.println(123);
     }
 }
