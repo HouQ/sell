@@ -49,11 +49,11 @@ public class ProductServiceImplTest {
     @Test
     public void save() {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("123457");
-        productInfo.setProductName("蛋挞");
+        productInfo.setProductId("123458");
+        productInfo.setProductName("水蜜桃");
         productInfo.setProductPrice(new BigDecimal(15.5));
         productInfo.setProductStock(50);
-        productInfo.setProductDescription("新鲜鸡蛋！！");
+        productInfo.setProductDescription("今早刚摘的！！");
         productInfo.setProductIcon("http://www.baidu.com");
         productInfo.setProductStatus(0);
         productInfo.setCategoryType(100);
