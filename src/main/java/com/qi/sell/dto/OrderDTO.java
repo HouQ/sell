@@ -1,9 +1,14 @@
 package com.qi.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.qi.sell.entity.OrderDetail;
+import com.qi.sell.utils.serializer.Data2LongSerializer;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +18,8 @@ import java.util.List;
  * 2018/7/5 17:22
  **/
 @Data
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+//@JsonInclude(JsonInclude.Include.NON_NULL) //结果中为null的不返回给前端
 public class OrderDTO {
     /*订单Id*/
     private String orderId;
@@ -39,10 +46,13 @@ public class OrderDTO {
     private Integer payStatus;
 
     /*创建时间*/
+    @JsonSerialize(using = Data2LongSerializer.class)
     private Date createTime;
 
     /*更新时间*/
+//    @JsonSerialize(using = Data2LongSerializer.class) 格式化时间格式
     private Date updateTime;
 
-    private List<OrderDetail> orderDetailList;
+    //当这个字段必须要返回且不能为null的时候,给个初始值
+    private List<OrderDetail> orderDetailList = new ArrayList<>();
 }

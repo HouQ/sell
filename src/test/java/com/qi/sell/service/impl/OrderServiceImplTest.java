@@ -2,6 +2,8 @@ package com.qi.sell.service.impl;
 
 import com.qi.sell.dto.OrderDTO;
 import com.qi.sell.entity.OrderDetail;
+import com.qi.sell.enums.OrderStatusEnum;
+import com.qi.sell.enums.PayStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -74,14 +76,21 @@ public class OrderServiceImplTest {
     public void cancel() {
         OrderDTO orderDTO = orderService.findOne(orderId);
         OrderDTO result = orderService.cancel(orderDTO);
-        Assert.assertEquals(orderId,result.getOrderId());
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(),result.getOrderStatus());
     }
 
     @Test
     public void finish() {
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO result = orderService.finish(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(),result.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO result = orderService.paid(orderDTO);
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(),result.getPayStatus());
+
     }
 }
