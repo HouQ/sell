@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -37,6 +36,12 @@ public class SellerUserController {
 
     @Autowired
     private StringRedisTemplate redisTemplate;
+
+    @GetMapping("/")
+    public ModelAndView sellerinfo(){
+
+        return new ModelAndView("manage/login");
+    }
 
     @GetMapping("/login")
     public ModelAndView login(@Valid SellerInfo sellerInfo, BindingResult bindingResult,
@@ -84,17 +89,4 @@ public class SellerUserController {
         }
         return new ModelAndView("redirect:/sellerinfo/logoutsuccess");
     }
-
-    @GetMapping("/success")
-    @ResponseBody
-    public String success() {
-        return "<h1>SUCCESS</h1>";
-    }
-
-    @GetMapping("/logoutsuccess")
-    @ResponseBody
-    public String successLogout() {
-        return "<h1>LOGOUTSUCCESS</h1>";
-    }
-
 }
