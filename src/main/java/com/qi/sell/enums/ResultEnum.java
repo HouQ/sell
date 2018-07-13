@@ -19,7 +19,10 @@ public enum ResultEnum {
     ORDER_UPDATE_FAIL(15, "订单更新失败"),
     ORDER_DETAIL_EMPTY(16, "订单无商品详情"),
     PAY_STATUS_ERROR(17, "支付状态错误"),
-    CART_EMPTY(18, "购物车为空"),;
+    CART_EMPTY(18, "购物车为空"),
+    SELLER_ERROR(19, "卖家信息不正确"),
+    SELLER_NOT_EXIST(20, "卖家不存在"),
+    WRONG_PASSWORD(21, "卖家不存在"),;
 
     private Integer code;
 

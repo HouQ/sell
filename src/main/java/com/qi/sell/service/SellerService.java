@@ -9,4 +9,6 @@ import com.qi.sell.entity.SellerInfo;
 public interface SellerService {
 
     SellerInfo findSellerInfoByOpenid(String openid);
+
+    SellerInfo findSellerByUsername(String username);
 }
