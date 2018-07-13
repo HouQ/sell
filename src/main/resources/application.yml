@@ -6,4 +6,9 @@ spring:
       url: jdbc:mysql://xxx/sell?characterEncoding=utf-8&useSSL=false
       username: xxx
       password: xxx
+  redis:
+    host: xxx
+    port: 6379
+    password: xxx
+
 

@@ -29,7 +29,7 @@ public class SellerAuthorizeAspect {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    @Pointcut("execution(public * com.qi.sell.controller.SellerUserController.*success())" +
+    @Pointcut("execution(public * com.qi.sell.controller.SellerUserController.success*())" +
                 "&&!execution(public * com.qi.sell.controller.SellerUserController.log*())")
     public void verify(){
 

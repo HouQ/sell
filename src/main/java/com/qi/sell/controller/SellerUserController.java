@@ -93,7 +93,7 @@ public class SellerUserController {
 
     @GetMapping("/logoutsuccess")
     @ResponseBody
-    public String logoutsuccess() {
+    public String successLogout() {
         return "<h1>LOGOUTSUCCESS</h1>";
     }
 
