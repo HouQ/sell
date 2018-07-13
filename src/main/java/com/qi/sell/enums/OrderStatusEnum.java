@@ -8,7 +8,7 @@ import lombok.Getter;
  * 2018/7/5 14:42
  **/
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum {
     NEW(0, "新订单"),
     FINISHED(1, "完成"),
     CANCEL(2, "已取消"),;
@@ -21,5 +21,14 @@ public enum OrderStatusEnum {
         this.code = code;
         this.message = message;
     }
+
+//    public static OrderStatusEnum getOrderStatusEnum(Integer code) {
+//        for (OrderStatusEnum orderStatusEnum : OrderStatusEnum.values()) {
+//            if (orderStatusEnum.getCode() == code) {
+//                return orderStatusEnum;
+//            }
+//        }
+//        return null;
+//    }
 
 }

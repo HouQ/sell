@@ -1,8 +1,12 @@
 package com.qi.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.qi.sell.entity.OrderDetail;
+import com.qi.sell.enums.OrderStatusEnum;
+import com.qi.sell.enums.PayStatusEnum;
+import com.qi.sell.utils.EnumUtil;
 import com.qi.sell.utils.serializer.Data2LongSerializer;
 import lombok.Data;
 import lombok.ToString;
@@ -50,9 +54,22 @@ public class OrderDTO {
     private Date createTime;
 
     /*更新时间*/
-//    @JsonSerialize(using = Data2LongSerializer.class) 格式化时间格式
+    //@JsonSerialize(using = Data2LongSerializer.class) 格式化时间格式
     private Date updateTime;
 
     //当这个字段必须要返回且不能为null的时候,给个初始值
     private List<OrderDetail> orderDetailList = new ArrayList<>();
+
+    //根据状态码获取枚举类
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore//转成json时会忽略
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
+
+
 }

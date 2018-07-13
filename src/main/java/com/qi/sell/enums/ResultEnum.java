@@ -22,7 +22,9 @@ public enum ResultEnum {
     CART_EMPTY(18, "购物车为空"),
     SELLER_ERROR(19, "卖家信息不正确"),
     SELLER_NOT_EXIST(20, "卖家不存在"),
-    WRONG_PASSWORD(21, "卖家不存在"),;
+    WRONG_PASSWORD(21, "密码错误"),
+    ORDER_CANCEL_SUCCESS(22, "订单取消成功"),
+    ORDER_FINISH_SUCCESS(23, "订单完结成功");
 
     private Integer code;
 
